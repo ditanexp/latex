@@ -1,0 +1,4 @@
+latex
+=====
+
+Some Latex templates 
