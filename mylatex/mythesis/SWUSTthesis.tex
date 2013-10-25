@@ -1,0 +1,34 @@
+\documentclass[pdftex]{SWUSTthesis}
+\graphicspath{{chapter/}{figures/}}%图片路径
+\begin{document}
+
+%% 封面
+    \title{尾矿库浸润线的地质雷达探测技术}
+    \college{环境与资源学院}
+    \major{安全工程}
+    \author{Tal Nino}
+    \advisor{Professor Wang}
+    \schoolnumber{20081000}
+    \etitle{Ground Penetration Radar (GPR) used for tailings seepage line detection}
+    \maketitle
+%%前言-摘要
+\frontmatter
+\pagenumbering{Roman}
+    \include{chapter/abstract}
+    \tableofcontents
+
+%%正文
+\mainmatter
+ \include{chapter/chapter1}
+  \include{chapter/chapter2}
+  \include{chapter/chapter3}
+  \include{chapter/chapter4}
+  \include{chapter/chapter5}
+
+
+\backmatter
+    \include{chapter/thanks}
+    \bibliography{bib/mypaper}
+
+
+\end{document} 

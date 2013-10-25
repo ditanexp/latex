@@ -1,0 +1,183 @@
+\chapter{地质雷达探测原理}
+地质雷达是将高频电磁脉冲通过偶极子天线向地下发射，利用接收天线在时间域上接收雷达的回波，通过计算双程走时和幅值可以确定地下介质的空间分布和电磁性质。
+其工作示意图如下：
+\begin{figure}[hb]
+\includegraphics{gzyl.jpg}
+\caption{地质雷达工作示意图}
+\end{figure}
+\par
+地质雷达波在地下的传播速度跟波形都与地下媒质的介电性有关，要弄清雷达波的传播随介质特性的变化规律，以及对雷达图像的影响，必须要对地质雷达电磁波的传播特性有所了解。
+本章将从麦克斯韦方程和波动方程出发，通过基本方程计算解释地质雷达的电磁原理，分析介电常数、电导率、磁导率、中心频率等对探测的影响，为后面浸润线探测正演分析和实地探测做理论准备。
+\section{地质雷达理论基础}
+\subsection{麦克斯韦方程与波动方程}
+要读懂地质雷达回波信号并提取出目标信息，必须对雷达波在介质中的传播有深入了解。地质雷达天线发射的电磁波，在地下介质中的传播满足麦克斯韦方程，电磁波这种随时间和空间变化传播的特征同时也符合波动方程的基本理论。
+地质雷达大都采用偶极子半波天线反射模式工作。因此，地质雷达的理论主要围绕利用麦克斯韦方程和波动方程解偶极子电磁场的问题展开。\par
+\subsubsection{克斯韦方程}
+无场源区电磁波的传播遵守麦克斯韦方程：
+\begin{equation}\label{1}
+\begin{array}{l}
+    \nabla\times\textbf{H}=i+\frac{\partial \textbf{D}}{ \partial t}\\
+    \nabla\times\textbf{B}=-\frac{\partial \textbf{B}}{ \partial t}\\
+    \nabla\cdot\textbf{B}=0\\
+    \nabla\cdot\textbf{D}=\rho
+\end{array}
+\end{equation}
+上式中，$E$为电场，$B$为磁场，$H$为辅助磁场，$D$为电位移，$\rho$为电荷密度。$\varepsilon_0$为物质的电容率，$\mu_0$为物质的电导率，则它们的本构关系为：
+\begin{equation}\label{2}
+    \textbf{D}=\varepsilon_{0}\textbf{E}
+\end{equation}
+\begin{equation}\label{3}
+    \textbf{H}=\textbf{B}/\mu_{0}
+\end{equation}
+\subsubsection{偶极子电磁场}
+在解偶极子电磁场方程中引入磁矢位A，其定义为：
+\begin{equation}\label{4}
+    \textbf{H}=\nabla\times\textbf{A}
+\end{equation}
+引进标量电位，结合式\ref{1}与式\ref{4}，可得矢量波动方程:
+\begin{equation}\label{5}
+\nabla^{2}\textbf{A}+k^2\textbf{A}=-\textbf{i}
+\end{equation}
+上式也称为亥姆霍兹方程，在地质雷达偶极子天线场中，偶极子天线的磁矢位为\cite{7}：
+\begin{equation}\label{6}
+\textbf{A}=\frac{1}{4\pi}\int_{\tau}\frac{t-\frac{\gamma}{v}}{\gamma}
+\end{equation}
+\subsubsection{波动方程}
+根据波的合成原理，任何脉冲电磁波都可以分解为不同频率的正弦电磁波。
+电磁波的传播特性满足波动方程，可以用波动原理来解释和处理，在距源$r$，时间$t$单一频率震动波可以用下式表示\cite{17}：\par
+\begin{equation}\label{7}
+P=|p|e^{-j(\omega t-kr)}
+\end{equation}\par
+$v$为电磁波传播速度，角频率$\omega=2\pi f$，$\lambda=v/f$ ，式\ref{1}可以改写为：
+\begin{equation}\label{8}
+P=|p|e^{-j(\omega t-\frac{2\pi f}{v}r)}=|p|e^{-j(\omega t -kr)}
+\end{equation}
+$k=\omega\sqrt{\mu(\varepsilon+j\frac{\sigma}{\omega})}$，可以写成$K=\alpha+j\beta$带入\ref{8}可得:
+\begin{equation}\label{9}
+P=|p|e^{-j(\omega t-\alpha r)}\cdot e^{-\beta r}
+\end{equation}\par
+综上，地质雷达波的电磁场计算主要是基于麦克斯韦方程展开，麦克斯韦经过变形求旋度可得电磁波的波动方程，在偶极子场中通过引入偶极子天线磁矢位来解得磁场和电场。
+\subsection{地质雷达电磁波的传播特性}
+在解偶极子天线场中我们知道，电磁场传播路径和场值大小主要由传播常数$k$和天线特性决定。$k=α+jβ$，可化为下式：
+\begin{equation}\label{10}
+    \alpha=\sqrt{\frac{\mu\varepsilon}{2}+(\sqrt{1+(\frac{\alpha}{\varepsilon\omega})^2})+1}
+\end{equation} \begin{equation}\label{11}
+    \beta=\sqrt{\frac{\mu\varepsilon}{2}+(\sqrt{1+(\frac{\alpha}{\varepsilon\omega})^2})-1}
+\end{equation}
+其中，$\alpha$称为相位系数，$\beta$称为吸收系数。由式\ref{10}与式\ref{11}可知，在特定天线频率下，介电常数$\varepsilon$，电导率$\sigma$，磁导率$\mu$，三者共同决定了地质雷达波的传播特性。
+\subsubsection{传播速度}
+由\ref{11}电磁波表达式可知$\alpha$为相位系数,则电磁波速:
+\begin{equation}\label{12}
+v=\frac{\omega}{\alpha}
+\end{equation}
+电磁波的双程走时由电磁波速决定，从\ref{12}可知, α是决定速度的决定因素，而$\alpha$与介电常数$\varepsilon$、电导率$\delta$和频率密切相关，低频时， $\alpha$主要由$\alpha$决定，高频时，$\alpha$主要由$\varepsilon$决定；而在低介质损耗中，电磁波波速与$\alpha$无关，与$\sqrt{\varepsilon\mu}$成反比，在良导体介质中时，波速仅与电导率$\sigma$有关\cite{18}。
+
+\subsubsection{反射与折射}
+如前文所述，地质雷达通过接收天线对地下介质的回波进行探测，电磁波在到达两种有差异电性分界面处会发生反射与折射。
+电磁波在分界面处反射遵循反射定律，$\theta_1=\theta_2$，折射定律：
+\begin{equation}\label{13}
+\frac{\sin\theta_{1}}{v_1}=\frac{\sin\theta_{2}}{v_2}
+\end{equation}
+\begin{equation}\label{14}
+n=\frac{\sin\theta_{1}}{\sin\theta_{2}}=\frac{v_1}{v_2}=\sqrt{\frac{\mu_{2}\varepsilon_{2}}{\mu_{1}\varepsilon_{1}}}=\frac{k_2}{k_1}
+\end{equation}
+$n$即为折射率，与两介质的性质有关。从介质$1$到介质$2$的界面时，反射系数和折射系数$R_{12}$与$T_{12}$分别为：
+\begin{equation}\label{15}
+R_{12}=\frac{(\eta_{2}\cos\theta_1-\eta_{1}\cos\theta_2)}{(\eta_{2}\cos\theta_1+\eta_{1}\cos\theta_2)}
+\end{equation}
+\begin{equation}\label{16}
+T_{12}=\frac{(2\eta_{2}\cos\theta_2)}{(\eta_{2}\cos\theta_1+\eta_{1}\cos\theta_2)}
+\end{equation}\par
+上式中，$\eta_1=\sqrt{\mu_{1}\acute{\varepsilon_1}}$ ，  $\eta_2=\sqrt{\mu_{2}\acute{\varepsilon_2}}$ ，$\acute{\varepsilon_1}$、$\acute{\varepsilon_2}$为复介电常数。当介质为非磁性介质时，反射系数为：
+\begin{equation}\label{17}
+R_{12}=\frac{\sqrt{\varepsilon_2}-\sqrt{\varepsilon_1}}{\sqrt{\varepsilon_2}+\sqrt{\varepsilon_1}}
+\end{equation}
+
+\subsubsection{散射与衰减}
+地质雷达波在通过不同电磁特性介质时会发生散射衰减，由式\ref{11}可知吸收系数为为$\beta$，距电场r处的吸收衰减可以表示为：
+\begin{equation}\label{18}
+A=e^{-2\beta r}
+\end{equation}
+反射系数为R，则透射损失为：
+\begin{equation}\label{19}
+B=(1-R^2)
+\end{equation}
+由式\ref{17}可知，电磁波在地下介质的传播中，其能量衰减主要跟吸收系数$\beta$有关：
+\begin{cnlist}
+  \item 	在低损耗介质中，即$\frac{\sigma}{\varepsilon\omega}\ll 1$时，$\beta\approx\frac{\sigma}{2}\sqrt{\frac{\mu}{\varepsilon}}$，吸收率与频率无关，与介电常数$\sigma$成正比，与电导率平方根
+      $\sqrt{\varepsilon}$成反比；
+  \item 	在损耗介质中，即$\frac{\sigma}{\varepsilon\omega}\gg$ 1时，$\beta\approx\sqrt{\pi f\mu\sigma}$ ，吸收率与电导率无关，跟$\sqrt{f}$、$\sqrt{\sigma}$成正比。
+\end{cnlist}\par
+电磁波在介质中传播的损耗决定了地质雷达探测能力的大小，同时，需要根据不同探测目标的电磁性质合理选择天线频率。
+
+\subsection{地质雷达工作方法}
+地质雷达共四种工作方式，分别为地表反射、弹孔反射、孔中层析成像和地面-孔中层析成像。
+层析成像实际上是透视测量，需要钻孔埋设天线，应用不多，我们说所的地质雷达也主要是指采用反射测量成像的地质雷达，如本文实验所用SIR-20即为反射偶极子天线雷达。
+地质雷达利用一个天线向地下发射一定中心频率的无载波电磁脉冲波，通过另一天线接收来自地下的回波，通过对回波波形特征进行解释，可推断出地下介质特性。
+地质雷达的反射测量方式主要有三种：共位移测量法、广角测量法、共中心点测量法\cite{19}。
+\subsubsection{共位移测量法}
+共位移测量法是保持发射天线和接收天线的距离不变，共同沿测线移动。
+在测线上每一个点都能获得一个记录，多个记录沿着测线组成一幅地质雷达时间剖面图像，图像的横轴为天线移动路径，纵轴为雷达波双程走时，已知电磁波在介质中传播速度则可以进行时深转换，从而知道地下目标的位置。
+在2.1.2中我们知道，反射和折射跟入射角度有关，当$\theta_1=0$时，电磁波垂直入射，此时发射天线和接受天线合并为一，通过$t=\frac{2d}{v}$进行时深转换，可以方便的测出地下目标位置，浅层管道检测等多用此种测量方式。
+\subsubsection{	广角测量法}
+广角测量时,让一个天线固定，另一个天线沿测线等间距移动，通过记录不同点对统一目标的走时来互相校正，可以实现对波速的测量。
+深度为h的水平界面反射波走时t满足：
+\begin{equation}\label{20}
+t^2=\frac{r^2}{v^2}+\frac{4r^2}{v^2}
+\end{equation}
+式中$r$为天线距，$h$为反射界面深度。在均匀介质中，当电磁波的传播速度不变时，
+$t^2$与$x^2$成线性关系，通过改变天线距，可以求出电磁波传播速度，因此，广角法的主要用途为求取地下介质传播速度。
+\subsubsection{共中心点测量法}
+共中心点又叫共深点测量法，它是将收发天线分离，测量时沿测线向两侧等距移动进行数据采集，应用不同天线距对同一测线进行重复测量，通过对相同测点的记录进行叠加可提高对地下介质的分辨率，天线距步距和叠加次数的选择需要满足一定的条件。
+\section{地质雷达性能参数}
+\subsection{分辨率}
+分辨率决定地质雷达分辨目标位置、形状、大小的能力，它决定了地质雷达是否能对异常目标进行分辨识别。地质雷达分辨率包含垂直分辨率和水平分辨率。
+\subsubsection{垂直分辨率}
+地质雷达在对地层或特定形状目标探测时，会在地层或目标的上下界面都产生反射，能对两个脉冲回波区分开来的最小距离就称为地质雷达的垂直分辨率。脉冲宽度和带宽关系如下：
+\begin{equation}\label{21}
+\Delta t=\frac{1}{\Delta f}
+\end{equation}
+带入$\Delta h=\frac{v\Delta_t}{2}$中进行时深转换可得\cite{12}：
+\begin{equation}\label{22}
+\Delta h=\frac{c}{2\Delta f\sqrt{\varepsilon_r}}
+\end{equation}
+而根据地震反射理论中的瑞雷标准定义为分辨率极限是$\lambda/4$，按照怀特分辨率的定义则为$\lambda/30$，如果考虑噪音影响则有所不同，实际中一般认为离散目标的垂直分辨率大约为$\lambda/4$，平面层在$\lambda/20$左右\cite{20}。\par
+上述结论中用中心频率代替频带宽度，而实际的频带宽度是难以计算的，要提高探测分辨率需要从雷达发射信号带宽、探测方法，数据处理等方面做出改进。
+\subsubsection{水平分辨率}
+地质雷达在水平方向上能分辨出的最小异常目标尺寸叫做水平分辨率。若两点相距$d$，同在深度为$h$的水平面内,两点的时间间隔:
+\begin{equation}\label{23}
+\Delta T=\frac{(2\sqrt{h^2+d^2})-2h}{v}
+\end{equation}
+要实现区分则脉冲宽度大于$\Delta t$，又$\frac{1}{\Delta t}=\Delta f$，则：
+\begin{equation}\label{24}
+d>\sqrt{\frac{v}{\Delta f}+\frac{vh}{\Delta f}}
+\end{equation}\par
+由上可知，水平分辨率也主要取决于频谱宽度，同时，探测深度越深水平分辨率越低。
+横向分辨率也有两种计算标准，按Sheriff标准为$\sqrt{2h^\lambda}$，按照Brokou的计算标准为$\sqrt{h^\lambda}$，可以看出垂直分辨率都与埋深有关\cite{20}。\par
+上述结论中用中心频率代替频带宽度，而实际的频带宽度是难以计算的，要提高探测分辨率需要从雷达发射信号带宽、探测方法，数据处理等方面做出改进。
+\subsection{探测深度}
+地质雷达能探测到最深的目标体的深度称为地质雷达的探测深度。地质雷达的探测深度跟雷达系统的增益有关，增益Q定义为:\\
+\begin{equation}\label{25}
+Q=\frac{W_t}{W_{r}^0}
+\end{equation}
+$W_t$、$W_{r}^0$分别为仪器的发射功率和系统背景噪声功率，雷达识别回波的前提是回波信号幅度大于背景噪音$W_r$，因此，地质雷达的探测深度即为求目标体的回波大小。
+定义发射天线和接收天线的效率为$\eta_t$和$\eta_r$，吸收系数$\beta$，$\lambda$为雷达波波长，入射方向天线增益为$G_t$，散射增益$G_r$,目标距天线$r$，散射面积为$\sigma$时，有雷达探测距离公式\cite{17}:
+\begin{equation}\label{26}
+W_r=W_t\eta_t\eta_{r}G_{t}G_{r}\sigma\frac{\lambda^2}{64\pi^2\gamma^4}e^{-4\beta r}
+\end{equation}
+目标能被探测的必要条件是$W_r$大于$W_r^0$，从式\ref{24}可以看出，衰减系数越大，探测深度越浅。由式\ref{11}我们知道，衰减系数跟雷达中心频率和地下介质的电磁性能相关的，降低雷达频率可以增加探测深度，同时由前面分析可知中心频率降低也会导致分辨率的降低。
+因此，天线中心频率的选择需要衡量探测深度和分辨率的需求。此外，衰减系数另一决定性的因素为介电常数，它也是影响探测深度的重要条件，由于水的介电常数相比其他物质大很多，所以地质雷达的探测深度受水的影响较大。
+\subsection{时窗和中心频率}
+\subsubsection{时窗}
+时窗的选择由最大的探测深度决定，一般取最大探测深度$d_max$双程走时的1.3倍。时窗$W$可按如下计算：
+\begin{equation}\label{27}
+w=1.3\times\frac{2d_max}{v}
+\end{equation}
+v为波速。
+\subsubsection{中心频率}
+由2.3.1与2.3.2知道，要对目标实施探测，中心频率的选择很重要。既要满足探测深度又要满足分辨率，此外还要考虑背景噪音。中心频率$f_0$一般采用下式确定：
+\begin{equation}\label{28}
+f_0=\frac{150}{x\sqrt{\varepsilon}}
+\end{equation}
+$x$为空间分辨率，$ε$为介质的介电常数。中心频率是地质雷达探测的重要指标，跟雷达性能密切相关。表\ref{t21}为GISS公司各型天线频率探测能力参考值。\par
+\input{sheet/sheet1}
